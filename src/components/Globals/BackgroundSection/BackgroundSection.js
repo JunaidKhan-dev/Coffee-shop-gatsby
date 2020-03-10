@@ -1,9 +1,9 @@
 import React from 'react'
 import BackgroundImage from 'gatsby-background-image'
 import styled from 'styled-components'
-const BackgroundSection = ({ img, className, title, children }) => {
+const BackgroundSection = ({ img, className, title, children, home }) => {
   return (
-    <BackgroundImage fluid={img} className={className}>
+    <BackgroundImage fluid={img} className={className} home={home}>
       <h1 className='title text-white text-uppercase text-center display-4 font-weight-bold'>{title}</h1>
       {children}
     </BackgroundImage>
@@ -14,7 +14,7 @@ BackgroundSection.defaultProps = {
   title: 'default title'
 }
 export default styled(BackgroundSection)`
-  min-height: 100vh;
+  min-height:${props => props.home ? '100vh' : '60vh'};
   display: flex;
   align-items: center;
   justify-content: center;
